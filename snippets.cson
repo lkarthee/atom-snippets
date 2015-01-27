@@ -1,0 +1,61 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+'.source.python':
+  'Model Serializer':
+    'prefix': 'msh'
+    'body': 'class $1Serializer(serializers.HyperlinkedModelSerializer):\n\tclass Meta:\n\t\tmodel = models.$1\n\n$2'
+  'Model Viewset':
+    'prefix': 'mvs'
+    'body': 'class $1ViewSet(viewsets.ModelViewSet):\n\tqueryset = models.$1.objects.all()\n\tserializer_class = serializers.$1Serializer\n\n$2'
+  'Serializer Import':
+    'prefix': 'simp'
+    'body': 'from rest_framework import serializers\nfrom $1 import models\n$2'
+  'ViewSets Import':
+    'prefix': 'vimp'
+    'body': 'from rest_framework import viewsets\nfrom rest_framework import permissions\n\nfrom $1 import models\nfrom $1 import serializers\n$2'
+  'URLs':
+    'prefix': 'url'
+    'body': 'url(r\'$1/\', $2, name=\'$3\'),\n'
+  'URL Imports':
+    'prefix': 'urlim'
+    'body': 'from django.conf.urls import url, include\n\n'
+  'URL Patterns':
+    'prefix': 'urlp'
+    'body': 'urlpatterns = [\n\turl(r\'^\', $1, $2),\n]\n'
+  'Rest URL Imports':
+    'prefix': 'rurlimp'
+    'body': """
+    from django.conf.urls import url, include
+
+    from rest_framework import renderers
+    from rest_framework import routers
+
+    from $1 import viewsets, views
+    $2
+    """
+  'Rest URL Patterns':
+    'prefix': 'rurlp'
+    'body': """
+    router = routers.DefaultRouter()
+    router.register(r'$1', viewsets.$2ViewSet)
+    $3
+    urlpatterns = [
+    \turl(r'^', include(router.urls)),
+    ]
+    """
+  'Rest URL Register':
+    'prefix': 'rreg'
+    'body': 'router.register(r\'$1\', viewsets.$2ViewSet)\n$3'
