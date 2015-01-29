@@ -13,6 +13,68 @@
 #     'prefix': 'log'
 #     'body': 'console.log $1'
 #
+'.source.js':
+  'React ClassName':
+    'prefix': 'cn'
+    'body': 'className="$1"$2'
+  'React Require':
+    'prefix': 're'
+    'body': 'var $1 = require(\'$2\');\n$3'
+  'React Prop String Optional':
+    'prefix': 'rpts'
+    'body': '$1: React.PropTypes.string,$2'
+  'React Prop Array Optional':
+    'prefix': 'rpta'
+    'body': '$1: React.PropTypes.array,$2'
+  'React Prop Function Optional':
+    'prefix': 'rptf'
+    'body': '$1: React.PropTypes.func,$2'
+  'React Prop Number Optional':
+    'prefix': 'rptn'
+    'body': '$1: React.PropTypes.number,$2'
+  'React Prop Object Optional':
+    'prefix': 'rpto'
+    'body': '$1: React.PropTypes.object,$2'
+  'React Prop Node Optional':
+    'prefix': 'rptno'
+    'body': '$1: React.PropTypes.node,$2'
+  'React Prop Element Optional':
+    'prefix': 'rpte'
+    'body': '$1: React.PropTypes.element,$2'
+  'React Prop Message  Optional':
+    'prefix': 'rptm'
+    'body': '$1: React.PropTypes.message,$2'
+  'React Prop String Required':
+    'prefix': 'rptsr'
+    'body': '$1: React.PropTypes.string.isRequired,$2'
+  'React Prop Array Required':
+    'prefix': 'rptar'
+    'body': '$1: React.PropTypes.array.isRequired,$2'
+  'React Prop Function Required':
+    'prefix': 'rptfr'
+    'body': '$1: React.PropTypes.func.isRequired,$2'
+  'React Prop Number Required':
+    'prefix': 'rptnr'
+    'body': '$1: React.PropTypes.number.isRequired,$2'
+  'React Prop Object Required':
+    'prefix': 'rptor'
+    'body': '$1: React.PropTypes.object.isRequired,$2'
+  'React Prop Node Required':
+    'prefix': 'rptnor'
+    'body': '$1: React.PropTypes.node.isRequired,$2'
+  'React Prop Element Required':
+    'prefix': 'rpter'
+    'body': '$1: React.PropTypes.element.isRequired,$2'
+  'React Prop Message Required':
+    'prefix': 'rptmr'
+    'body': '$1: React.PropTypes.message.isRequired,$2'
+  'JSX div':
+    'prefix': 'div'
+    'body': '<div className="$1">\n\t$2\n</div>'
+  'JSX pre':
+    'prefix': 'pre'
+    'body': '<pre className="$1">\n\t$2\n</pre>'
+
 '.source.python':
   'Model Serializer':
     'prefix': 'msh'
@@ -35,6 +97,9 @@
   'URL Patterns':
     'prefix': 'urlp'
     'body': 'urlpatterns = [\n\turl(r\'^\', $1, $2),\n]\n'
+  'Rest API URLs':
+    'prefix': 'apiurl'
+    'body': 'url(r\'^api$1/\', include(\'$2.urls\')),$3'
   'Rest URL Imports':
     'prefix': 'rurlimp'
     'body': """
@@ -53,7 +118,7 @@
     router.register(r'$1', viewsets.$2ViewSet)
     $3
     urlpatterns = [
-    \turl(r'^', include(router.urls)),
+    \turl(r'^$', include(router.urls)),
     ]
     """
   'Rest URL Register':
